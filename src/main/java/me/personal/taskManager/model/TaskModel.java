@@ -1,9 +1,6 @@
 package me.personal.taskManager.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity(name = "TB_TASKS")
 public class TaskModel {
@@ -11,6 +8,8 @@ public class TaskModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false, unique = true)
     private String titulo;
     private String descricao;
     private Boolean feito;

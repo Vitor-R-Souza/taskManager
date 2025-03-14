@@ -13,7 +13,7 @@ public record TaskDTO(
     public TaskDTO(TaskModel model){
         this(
                 model.getId(),
-                Optional.ofNullable(model.getTitulo()).orElse("Tarefa" + model.getId()),
+                model.getTitulo(),
                 model.getDescricao(),
                 Optional.ofNullable(model.getFeito()).orElse(false)
         );
@@ -22,7 +22,7 @@ public record TaskDTO(
     public TaskModel toModel(){
         TaskModel model = new TaskModel();
         model.setId(this.id);
-        model.setTitulo(Optional.ofNullable(this.titulo).orElse("Tarefa" + model.getId()));
+        model.setTitulo(this.titulo);
         model.setDescricao(this.descricao);
         model.setFeito(Optional.ofNullable(this.feito).orElse(false));
         return model;
