@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TaskRepository extends JpaRepository<TaskModel, Long> {
     TaskModel findByTitulo(String titulo);
+    boolean existsByTitulo(String titulo);
 }
